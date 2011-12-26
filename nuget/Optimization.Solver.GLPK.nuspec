@@ -17,8 +17,7 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\source\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40" />
-    <file src="..\source\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40" />
-    <file src="..\nuget\install.ps1" target="tools" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40" />
   </files>
 </package>
