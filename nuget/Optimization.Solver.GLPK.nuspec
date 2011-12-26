@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package>
+  <metadata>
+    <id>Optimization.Solver.GLPK</id>
+    <version>0.3.000.0</version>
+    <title>GLPKSolver for Optimization.Framework</title>
+    <authors>Lars Beckmann</authors>
+    <description>This is the GLPKSolver library for the Optimization.Framework. The Optimization.Framework allows you to use C# as a modelling language for mathematical optimization. It furthermore allows you to use solvers as services.</description>
+    <summary>This is the GLPKSolver library for the Optimization.Framework. The Optimization.Framework allows you to use C# as a modelling language for mathematical optimization. It furthermore allows you to use solvers as services.</summary>
+    <language>en-US</language>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://www.gnu.org/licenses/gpl-3.0.html</licenseUrl>
+    <projectUrl>https://github.com/larsbeck/Optimization.Solver.GLPKSolver</projectUrl>
+    <iconUrl>http://www.optimizationzen.com/optimization.framework.jpg</iconUrl>
+    <dependencies>
+      <dependency id="Optimization.Framework" version="0.3.940.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="..\source\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40" />
+    <file src="..\source\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40" />
+    <file src="..\nuget\install.ps1" target="tools" />
+  </files>
+</package>
