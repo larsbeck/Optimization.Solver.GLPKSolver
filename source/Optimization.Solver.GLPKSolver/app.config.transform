@@ -1,0 +1,11 @@
+<configuration>
+  <configSections>
+    <section name="optimization" type="Optimization.Configuration.OptimizationConfigSection, Optimization.Framework"/>
+  </configSections>
+
+  <optimization xmlns="com.optimizationzen.optimization.framework">
+    <solvers>
+      <solver name="GPLK" path="Reference Assemblies\GLPK\x64"/>
+    </solvers>
+  </optimization>
+</configuration>
