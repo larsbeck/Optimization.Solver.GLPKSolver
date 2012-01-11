@@ -241,12 +241,19 @@ namespace Optimization.Solver.GLPK
         public GLPKSolver()
         {
             SetupHelpers.SetPathForSolverLib("GLPK");
+            if (WriteLogLine == null)
+                WriteLogLine = nulloutput;
         }
+
+        private static void nulloutput(string output)
+        {
+        }
+
 
         /// <summary>
         /// Initializes a new instance of the GLPKLinearSolver class.
         /// </summary>
-        unsafe public GLPKSolver(Action<string> writeLog)
+        unsafe public GLPKSolver(Action<string> writeLog):this()
         {
             WriteLogLine = writeLog;
             /*

@@ -17,8 +17,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40" />
-    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40-full" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40-full" />
 	<file src="..\tools\GLPK\x86\glpk.dll" target="content/Reference Assemblies/GLPK/x86\" />
 	<file src="..\tools\GLPK\x64\glpk.dll" target="content/Reference Assemblies/GLPK/x64\" />
 	<file src="..\source\Optimization.Solver.GLPKSolver\app.config.transform" target="content" />
