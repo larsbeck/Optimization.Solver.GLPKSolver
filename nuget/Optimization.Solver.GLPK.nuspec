@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Optimization.Solver.GLPK</id>
-    <version>0.3.000.0</version>
+    <version>0.3.004.0</version>
     <title>GLPKSolver for Optimization.Framework</title>
     <authors>Lars Beckmann</authors>
     <description>This is the GLPKSolver library for the Optimization.Framework. The Optimization.Framework allows you to use C# as a modelling language for mathematical optimization. It furthermore allows you to use solvers as services.</description>
@@ -13,12 +13,12 @@
     <projectUrl>https://github.com/larsbeck/Optimization.Solver.GLPKSolver</projectUrl>
     <iconUrl>http://www.optimizationzen.com/optimization.framework.jpg</iconUrl>
     <dependencies>
-      <dependency id="Optimization.Framework" version="0.3.940.0" />
+      <dependency id="Optimization.Framework" version="0.3.1036.0" />
     </dependencies>
   </metadata>
   <files>
-    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40-full" />
-    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40-full" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.dll" target="lib\net40-client" />
+    <file src="..\source\Optimization.Solver.GLPKSolver\bin\Release\Optimization.Solver.GLPKSolver.XML" target="lib\net40-client" />
 	<file src="..\tools\GLPK\x86\glpk.dll" target="content/Reference Assemblies/GLPK/x86\" />
 	<file src="..\tools\GLPK\x64\glpk.dll" target="content/Reference Assemblies/GLPK/x64\" />
 	<file src="..\source\Optimization.Solver.GLPKSolver\app.config.transform" target="content" />

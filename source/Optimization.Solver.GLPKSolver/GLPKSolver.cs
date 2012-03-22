@@ -203,7 +203,7 @@ namespace Optimization.Solver.GLPK
         #endregion
 
         // Reference to the Optimization.Framework model
-        private IModel _model;
+        private Model _model;
 
         // Pointer to the GLPK internal model
         private double* _glpk_model;
@@ -283,7 +283,7 @@ namespace Optimization.Solver.GLPK
         /// The configuration of this solver instance.
         /// </summary>
         /// <value></value>
-        public ISolverConfiguration Configuration
+        public SolverConfiguration Configuration
         {
             get
             {
@@ -332,7 +332,7 @@ namespace Optimization.Solver.GLPK
         /// <param name="model">The model.</param>
         /// <param name="variableValues">The variable values.</param>
         /// <returns>A solution object.</returns>
-        public ISolution Solve(IModel model, IDictionary<string, double> variableValues = null)
+        public Solution Solve(Model model, IDictionary<string, double> variableValues = null)
         {
             if (model == null)
                 throw new ArgumentNullException("model");
@@ -423,7 +423,7 @@ namespace Optimization.Solver.GLPK
                     if (model.ObjectivesCount > 1)
                         throw new ArgumentException("Only one objective supported");
 
-                    IObjective objective = model.Objectives.ElementAt(0);
+                    var objective = model.Objectives.ElementAt(0);
 
                     // Loop through all expressions and set the variable's coefficient
                     foreach (var term in objective.Expression.Terms)
@@ -452,7 +452,7 @@ namespace Optimization.Solver.GLPK
                 ar.Add(-1d);
 
                 // Loop through all constraints in the model
-                foreach (IConstraint constraint in model.Constraints)
+                foreach (var constraint in model.Constraints)
                 {
                     // Loop through each term
                     foreach (var term in constraint.Expression.Terms)
@@ -599,7 +599,7 @@ namespace Optimization.Solver.GLPK
                 }
 
                 // Create a new Optimization.Framework solution object and return it
-                ISolution solution = new Solution(model.Name, overallWallTime, modelStatus,
+                var solution = new Solution(model.Name, overallWallTime, modelStatus,
                                             solutionStatus,
                                             varValues, null, objValues);
 
