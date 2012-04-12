@@ -481,14 +481,19 @@ namespace Optimization.Solver.GLPK
 
                     // Since the OF moves LBs/ UBs to constant terms and sets the constraint's bound to 0, 
                     // we have to add the constant to the bound again
-                    if (constraint.Expression.Constant < 0)
-                        constraint.UpperBound -= constraint.Expression.Constant;
-                    else if (constraint.Expression.Constant > 0)
-                        constraint.LowerBound += constraint.Expression.Constant;
+                    var ub = constraint.UpperBound;
+                    var lb = constraint.LowerBound;
+                    if (constraint.Expression.Constant != 0)
+                    {
+                        if (ub != double.PositiveInfinity)
+                            ub -= constraint.Expression.Constant;
+                        if (lb != double.NegativeInfinity)
+                            lb -= constraint.Expression.Constant;
+                    }
 
                     // Set bounds for the constraint
-                    glp_set_row_bnds(_glpk_model, rowIndex, (int)glpkConstraintType, constraint.LowerBound,
-                                     constraint.UpperBound);
+                    glp_set_row_bnds(_glpk_model, rowIndex, (int)glpkConstraintType, lb,
+                                     ub);
                     glp_set_row_name(_glpk_model, rowIndex, constraint.Name);
                     rowIndex++;
                 }
