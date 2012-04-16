@@ -5,7 +5,7 @@
 
   <optimization xmlns="com.optimizationzen.optimization.framework">
     <solvers>
-      <solver name="GLPK" path="Reference Assemblies\GLPK\x64"/>
+      <solver name="GLPK" path="..\..\Reference Assemblies\GLPK\x86"/>
     </solvers>
   </optimization>
 </configuration>
