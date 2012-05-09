@@ -424,9 +424,10 @@ namespace Optimization.Solver.GLPK
                         throw new ArgumentException("Only one objective supported");
 
                     var objective = model.Objectives.ElementAt(0);
+                    var expression = objective.Expression.Normalize();
 
                     // Loop through all expressions and set the variable's coefficient
-                    foreach (var term in objective.Expression.Terms)
+                    foreach (var term in expression.Terms)
                     {
                         if (!term.isLinear)
                             throw new ArgumentException("Only linear terms in objective allowed: " + term);
@@ -434,7 +435,7 @@ namespace Optimization.Solver.GLPK
                     }
 
                     //Set constant factor for objective function
-                    glp_set_obj_coef(_glpk_model, 0, objective.Expression.Constant);
+                    glp_set_obj_coef(_glpk_model, 0, expression.Constant);
 
                     // Set objective's name
                     glp_set_obj_name(_glpk_model, objective.Name);
@@ -457,8 +458,9 @@ namespace Optimization.Solver.GLPK
                 // Loop through all constraints in the model
                 foreach (var constraint in model.Constraints)
                 {
+                    var expression = constraint.Expression.Normalize();
                     // Loop through each term
-                    foreach (var term in constraint.Expression.Terms)
+                    foreach (var term in expression.Terms)
                     {
                         // Add coefficient (factor) for matrix cell [i,j], i=rowIndex, j=variablesToIdx[term.Variable]
                         ia.Add(rowIndex);
@@ -486,12 +488,12 @@ namespace Optimization.Solver.GLPK
                     // we have to add the constant to the bound again
                     var ub = constraint.UpperBound;
                     var lb = constraint.LowerBound;
-                    if (constraint.Expression.Constant != 0)
+                    if (expression.Constant != 0)
                     {
                         if (ub != double.PositiveInfinity)
-                            ub -= constraint.Expression.Constant;
+                            ub -= expression.Constant;
                         if (lb != double.NegativeInfinity)
-                            lb -= constraint.Expression.Constant;
+                            lb -= expression.Constant;
                     }
 
                     // Set bounds for the constraint
