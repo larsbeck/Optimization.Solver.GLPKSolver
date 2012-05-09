@@ -433,6 +433,9 @@ namespace Optimization.Solver.GLPK
                         glp_set_obj_coef(_glpk_model, variablesToIdx[term.Variable], term.Factor);
                     }
 
+                    //Set constant factor for objective function
+                    glp_set_obj_coef(_glpk_model, 0, objective.Expression.Constant);
+
                     // Set objective's name
                     glp_set_obj_name(_glpk_model, objective.Name);
 
