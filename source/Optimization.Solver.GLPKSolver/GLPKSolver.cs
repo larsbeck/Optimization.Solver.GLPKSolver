@@ -338,7 +338,7 @@ namespace Optimization.Solver.GLPK
                 throw new ArgumentNullException("model");
             if (IsBusy)
                 throw new InvalidOperationException("solver is busy");
-            try
+            //try
             {
                 IsBusy = true;
                 if (variableValues == null)
@@ -615,14 +615,14 @@ namespace Optimization.Solver.GLPK
 
                 return solution;
             }
-            catch (Exception exception)
-            {
-                Console.WriteLine(exception.Message);
-            }
-            finally
-            {
-                IsBusy = false;
-            }
+            //catch (Exception exception)
+            //{
+            //    Console.WriteLine(exception.Message);
+            //}
+            //finally
+            //{
+            //    IsBusy = false;
+            //}
 
             return null;
         }
